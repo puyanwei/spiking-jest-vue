@@ -1,11 +1,18 @@
 <template>
   <div id="app">
+    <message-list :messages="messages"></message-list>
   </div>
 </template>
 
 <script>
+import MessageList from "./components/MessageList";
+
 export default {
-  name: "App"
+  name: "App",
+  data: () => ({ messages: ["Hi", "S'up", "Howdy", "Hey", "Hello"] }),
+  components: {
+    "message-list": MessageList
+  }
 };
 </script>
 

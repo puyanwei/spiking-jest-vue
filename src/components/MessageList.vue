@@ -1,6 +1,6 @@
 <template lang="html">
   <ul>
-    <li v-for="messages in message">{{ message }}</li>
+    <li v-for="message in messages">{{ message }}</li>
   </ul>
 </template>
 

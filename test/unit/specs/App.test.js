@@ -1,24 +1,24 @@
-import Vue from "vue";
+import { shallow } from "vue-test-utils";
 import App from "../../../src/App";
 
 describe("App.test.js", () => {
-  let cmp, vm;
+  let component;
 
   beforeEach(() => {
-    cmp = Vue.extend(App); // Create a copy of the original component
-    vm = new cmp({
+    component = shallow(App, {
+      // Create a shallow instance of the component
       data: {
-        // Replace data value with this fake data
         messages: ["Cat"]
       }
-    }).$mount(); // Instances and mounts the component
+    });
   });
 
   it('equals messages to ["Cat"]', () => {
-    expect(vm.messages).toEqual(["Cat"]);
+    expect(component.vm.messages).toEqual(["Cat"]);
+    // Within component.vm, we can access all Vue instance methods
   });
 
   it("has the expected html structure", () => {
-    expect(vm.$el).toMatchSnapshot();
+    expect(component.element).toMatchSnapshot();
   });
 });
